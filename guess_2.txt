@@ -1,0 +1,9 @@
+Using 2315 words.
+100%|████████████████████████████| 2678455/2678455.0 [10:07:54<00:00, 73.43it/s]
+      green    yellow word_1 word_2
+2  1.196544  2.667387  sooty  crane
+1  1.162851  2.947300  slate  crony
+0  1.092009  3.033261  irony  slate
+3  1.023326  3.046652  stair  clone
+4  0.982289  3.050540  route  slain
+
