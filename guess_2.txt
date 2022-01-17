@@ -1,9 +1,13 @@
-Using 2315 words.
-100%|████████████████████████████| 2678455/2678455.0 [10:07:54<00:00, 73.43it/s]
-      green    yellow word_1 word_2
-2  1.196544  2.667387  sooty  crane
-1  1.162851  2.947300  slate  crony
-0  1.092009  3.033261  irony  slate
-3  1.023326  3.046652  stair  clone
-4  0.982289  3.050540  route  slain
+Guess words: 2315
+Solution words: 2315
+Parallel jobs: 4
+100%|██████████████████████████████| 2678455/2678455 [2:45:32<00:00, 269.68it/s]
+
+   green    yellow  word_1    word_2
+--------  --------  --------  --------
+0.982289   3.05054  route     slain
+1.02333    3.04665  stair     clone
+1.09201    3.03326  irony     slate
+1.16285    2.9473   slate     crony
+1.19654    2.66739  sooty     crane
 
