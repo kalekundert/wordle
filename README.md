@@ -1,11 +1,16 @@
 Best Wordle Starting Guesses
 ============================
 Wordle is a simple online game, with the goal being to correctly guess a 
-5-letter word in 6 or fewer attempts.  Each letter in each guess is colored 
-yellow if it is in the unknown word, and green if it is both in the word and in 
-the correct position.  The key to doing well is to start by guessing words that 
-have common letters in common positions.  This repository hosts a script that 
-calculates optimal starting guesses.  Some unique features of this script:
+5-letter word in 6 or fewer attempts.  Each guess gives you more information 
+about (i) what letters are not in the word, (ii) what letters are in the word, 
+but in the wrong position, and (iii) what letters are in the right position.  
+The key to doing well is to start by guessing words that give you as much 
+information as possible.
+
+This repository hosts as script that calculates optimal starting guesses.  More 
+specifically, this means the starting guesses that leave the fewest possible 
+words that the answer could be, on average.  Some other noteworthy features of 
+this script:
 
 - Correctly account for letter positions and correlations by comparing every 
   possible guess to every possible word in the Wordle database.
@@ -15,24 +20,6 @@ calculates optimal starting guesses.  Some unique features of this script:
   more words are being guessed, it may be possible to do better by distributing 
   the best letters over words that wouldn't be optimal on their own.
 
-- Find guesses that are Pareto-optimal.  What does this mean?  Each guess can 
-  be ranked in two ways: by the number of green letters it is expected to 
-  contain, and by the same for yellow letters.  While there may be some overlap 
-  between these rankings, they are not the same.  For example, a word that ends 
-  in 'y' would rank relatively high in terms of green letters (because 'y' is 
-  common at the end of words), but relatively low in terms of yellow letters 
-  (because 'y' is not that common overall).  It's not clear *a priori* how much 
-  we should factor each ranking when picking the best guess.
-
-  One way to avoid this problem is to not pick a single best guess, but instead 
-  to find all the Pareto-optimal guesses.  Collectively, these guesses are 
-  called the Pareto front.  A Pareto-optimal guess is one for which no other 
-  guess has both more expected green letters and more expected yellow letters.  
-  In other words: no matter how much value you personally assign to yellow and 
-  green letters, your personal "best guess" will be in the Pareto front.  Think 
-  of the Pareto front as a collection of reasonable guesses, from which you can 
-  pick the one that best suits your taste.
-
 Here are the commands to run the script:
 ```
 $ git clone git@github.com:kalekundert/wordle.git
@@ -41,24 +28,32 @@ $ pip install -r requirements.txt
 $ py wordle.py -h
 ```
 
-Here are the results for 1 starting guess:
+Here are the top 10 results for 1 starting guess:
 
-|   Word | Avg. Green | Avg. Yellow |
-|:-------|-----------:|------------:|
-|  slate |   0.620734 |    1.683801 |
-|  saner |   0.578402 |    1.714903 |
-|  stare |   0.572786 |    1.765443 |
-|  arose |   0.538661 |    1.768035 |
-|  irate |   0.505832 |    1.777970 |
-|  later |   0.446220 |    1.778402 |
+| Word  | Avg. Remaining |
+|:------|---------------:|
+| raise |        61.0009 |
+| arise |        63.7257 |
+| irate |        63.7793 |
+| arose |        66.0212 |
+| alter |        69.9918 |
+| saner |        70.1257 |
+| later |        70.2233 |
+| snare |        71.0976 |
+| stare |        71.2946 |
+| slate |        71.5728 |
 
-Here are the results for 2 starting guesses:
+Here are the top 10 results for 2 starting guesses:
 
-| Word 1 | Word 2 | Avg. Green | Avg. Yellow |
-|:-------|:-------|-----------:|------------:|
-|  sooty |  crane |   1.196544 |    2.667387 |
-|  slate |  crony |   1.162851 |    2.947300 |
-|  irony |  slate |   1.092009 |    3.033261 |
-|  stair |  clone |   1.023326 |    3.046652 |
-|  route |  slain |   0.982289 |    3.050540 |
-
+| Word 1 | Word 2 | Avg. Remaining |
+|:-------|:-------|---------------:|
+|  trice |  salon |        4.36328 |
+|  stole |  cairn |        4.39784 |
+|  train |  close |        4.48337 |
+|  coast |  liner |        4.49546 |
+|  stair |  clone |        4.50324 |
+|  scone |  trail |        4.56285 |
+|  crate |  solid |        4.77019 |
+|  trace |  solid |        4.77711 |
+|  decor |  slant |        4.77970 |
+|  slant |  cried |        4.79179 |

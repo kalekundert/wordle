@@ -1,13 +1,19 @@
 Guess words: 2315
-Solution words: 2315
+Answer words: 2315
 Parallel jobs: 4
-100%|██████████████████████████████| 2678455/2678455 [2:45:32<00:00, 269.68it/s]
+100%|██████████████████████████████| 5359225/5359225 [2:10:27<00:00, 684.65it/s]
+100%|██████████████████████████████| 2678455/2678455 [5:49:44<00:00, 127.64it/s]
 
-   green    yellow  word_1    word_2
---------  --------  --------  --------
-0.982289   3.05054  route     slain
-1.02333    3.04665  stair     clone
-1.09201    3.03326  irony     slate
-1.16285    2.9473   slate     crony
-1.19654    2.66739  sooty     crane
+guess                 remaining
+------------------  -----------
+('trice', 'salon')      4.36328
+('stole', 'cairn')      4.39784
+('train', 'close')      4.48337
+('coast', 'liner')      4.49546
+('stair', 'clone')      4.50324
+('scone', 'trail')      4.56285
+('crate', 'solid')      4.77019
+('trace', 'solid')      4.77711
+('decor', 'slant')      4.7797
+('slant', 'cried')      4.79179
 
